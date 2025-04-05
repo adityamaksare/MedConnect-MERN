@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "echo 'Build completed'",
+    "postbuild": "node -e \"const fs=require('fs'); const path=require('path'); try { fs.copyFileSync('public/_redirects', 'build/_redirects'); console.log('Copied _redirects'); } catch(e) { console.error('Error copying _redirects:', e); } try { fs.copyFileSync('static.json', 'build/static.json'); console.log('Copied static.json'); } catch(e) { console.error('Error copying static.json:', e); }\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

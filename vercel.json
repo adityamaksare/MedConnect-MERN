@@ -1,31 +1,22 @@
 {
     "version": 2,
-    "buildCommand": "cd frontend && npm install && npm run build",
-    "outputDirectory": "frontend/build",
-    "rewrites": [
+    "builds": [
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "src": "server.js",
+            "use": "@vercel/node"
         }
     ],
-    "headers": [
+    "routes": [
         {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "s-maxage=1, stale-while-revalidate"
-                }
-            ]
-        },
-        {
-            "source": "/static/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
+            "src": "/(.*)",
+            "dest": "/server.js"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production",
+        "PORT": "8080",
+        "MONGO_URI": "mongodb+srv://adityaytmusic:wpbgWNIGIDGl6Crh@cluster0.mhqnstt.mongodb.net/doctor-appointment?retryWrites=true&w=majority&appName=Cluster0",
+        "JWT_SECRET": "your_jwt_secret_key",
+        "JWT_EXPIRES_IN": "30d"
+    }
 }
