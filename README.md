@@ -1,6 +1,70 @@
-# Doctor Appointment System
+# MedConnect - Doctor Appointment System
 
-A full-stack web application for managing doctor appointments, built with the MERN stack.
+A MERN stack application for scheduling doctor appointments.
+
+## Deployment Guide for Vercel
+
+### Frontend Deployment (Vercel)
+
+1. **Sign up for Vercel**
+   - Create a Vercel account at [vercel.com](https://vercel.com)
+   - Install the Vercel CLI: `npm i -g vercel`
+
+2. **Connect Your GitHub Repository**
+   - Log in to Vercel dashboard
+   - Click "Add New" → "Project"
+   - Select your GitHub repository (MedConnect-MERN)
+   - Click "Import"
+
+3. **Configure Project Settings**
+   - Configure the project as follows:
+     - Framework Preset: Create React App
+     - Root Directory: `frontend` (important!)
+     - Build Command: `npm run build`
+     - Output Directory: `build`
+
+4. **Set Environment Variables**
+   - Add the following environment variable:
+     - `REACT_APP_API_URL` = [Your backend API URL]
+   - If you already deployed the backend to Render, use:
+     - `REACT_APP_API_URL` = https://medconnect-backend.onrender.com/api
+
+5. **Deploy**
+   - Click "Deploy" and wait for the build to complete
+
+### Backend Deployment
+
+The backend should be deployed separately on a service like Render. Refer to the DEPLOY_GUIDE.md file for backend deployment instructions.
+
+## Local Development
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/adityamaksare/MedConnect-MERN.git
+   cd MedConnect-MERN
+   ```
+
+2. Install dependencies:
+   ```
+   # Install backend dependencies
+   cd backend
+   npm install
+
+   # Install frontend dependencies
+   cd ../frontend
+   npm install
+   ```
+
+3. Run the development server:
+   ```
+   # Run backend
+   cd backend
+   npm run dev
+
+   # Run frontend in another terminal
+   cd frontend
+   npm start
+   ```
 
 ## Author
 Aditya Maksare
