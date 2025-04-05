@@ -1,22 +1,14 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "server.js",
-            "use": "@vercel/node"
+    "projects": {
+        "backend": {
+            "root": "backend"
+        },
+        "frontend": {
+            "root": "frontend"
         }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/server.js"
-        }
-    ],
-    "env": {
-        "NODE_ENV": "production",
-        "PORT": "8080",
-        "MONGO_URI": "mongodb+srv://adityaytmusic:wpbgWNIGIDGl6Crh@cluster0.mhqnstt.mongodb.net/doctor-appointment?retryWrites=true&w=majority&appName=Cluster0",
-        "JWT_SECRET": "your_jwt_secret_key",
-        "JWT_EXPIRES_IN": "30d"
-    }
+    },
+    "buildCommand": "cd frontend && npm install && npm run build",
+    "outputDirectory": "frontend/build",
+    "installCommand": "npm install"
 }
